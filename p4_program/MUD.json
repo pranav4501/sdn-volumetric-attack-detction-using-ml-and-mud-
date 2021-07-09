@@ -1064,7 +1064,7 @@
       ["standard_metadata", "priority"]
     ]
   ],
-  "program" : "/home/p4/Downloads/MUD/MUD.p4i",
+  "program" : "/home/p4/Downloads/MUD/p4_program/MUD.p4i",
   "__meta__" : {
     "version" : [2, 18],
     "compiler" : "https://github.com/p4lang/p4c"
