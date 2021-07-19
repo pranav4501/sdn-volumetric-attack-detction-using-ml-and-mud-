@@ -222,7 +222,20 @@ apply {
 control MyEgress(inout headers hdr,
                  inout metadata meta,
                  inout standard_metadata_t standard_metadata) {
-    apply {  }
+    
+    register<bit<48>>(500) latency;
+    register<bit<32>>(1) ind;
+    apply { 
+    	bit<48> dif;
+    	bit<32> temp_ind;
+
+    	ind.read(temp_ind, 0);
+    	dif=standard_metadata.egress_global_timestamp - standard_metadata.ingress_global_timestamp ;
+    	latency.write(temp_ind, dif);
+    	temp_ind=temp_ind+1;
+    	ind.write(0,temp_ind);
+
+     }
 }
 /*************************************************************************
 *************   C H E C K S U M    C O M P U T A T I O N   **************

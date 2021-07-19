@@ -1,0 +1,7 @@
+1)
+time.sleep(0.01-(i*(0.00001)))
+len(packet)=54
+no(packets)=1000
+attacker to iot device
+[2932, 198746, 0, 0]
+[3302, 223906, 0, 0]

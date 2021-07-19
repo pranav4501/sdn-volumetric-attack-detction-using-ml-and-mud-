@@ -43,7 +43,7 @@ def main():
 	i=0
 	t=df['Time'].tolist()
 
-	for i in range(1256,1257):
+	for i in range(1256,2000):
 					if(p[i]=='TCP' or p[i]=='TLSv1'):
 						if d[i]=='192.168.1.227':
 							ipd='10.0.1.1'
@@ -58,7 +58,7 @@ def main():
 							k=i
 							break
 			
-	for i in range(1257 ,2298):
+	for i in range(k+1 ,2298):
 		time.sleep((t[i]-ti)/25)
 		ti=t[i]
 		if(p[i]=='TCP' or p[i]=='TLSv1'):
@@ -85,3 +85,5 @@ if __name__ == '__main__':
 
 
 ##1256 #2298--TcpSynDevice1W2D
+
+##713 #2455-- 6-6-18-TcpSynReflection

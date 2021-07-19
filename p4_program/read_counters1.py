@@ -31,7 +31,7 @@ class ReadCounters(object):
 		self.controller.table_delete_match( table_name=table_name, match_keys=match_keys)
 
 	def t_dump(self, table_name):
-		self.controller.table_dump(table_name= table_name)
+		return self.controller.table_dump(table_name= table_name)
 
 	def t_add(self,table_name, action_name, match_keys, action_params, prio):
 		self.controller.table_add(table_name=table_name, action_name=action_name, match_keys=match_keys, action_params=action_params, prio=prio)
@@ -77,8 +77,6 @@ if __name__ == "__main__":
 	 '0x22cdec18&&&0x0fff', '0x6&&&0x0ff', '0x0&&&0x0', '0xC50B&&&0x0ff' ], ['00:00:0a:00:02:02', '2' ,'22'],'22')
 	#ReadCounters("s1").delete('data',['0x0&&&0x0','0x928&&&0x0fff',  '0x0800&&&0x0fff','0xc18&&&0x0fff', '0x0&&&0x0',  '0x6&&&0x0ff', '0xB&&&0x0ff', '0x0&&&0x0' ])
 
-	
-	ReadCounters("s1").t_dump('data')
 
 	loaded_model = pickle.load(open('kmeans_internet.sav', 'rb'))
 	loaded_scaler=pickle.load(open('kmeansscaler.sav', 'rb'))
@@ -96,6 +94,7 @@ if __name__ == "__main__":
 		time.sleep((2.4))
 		#Checking timeout
 		if time_out_from!=0:
+			ReadCounters("s1").t_dump('data')
 			time_out_from-=1
 			if time_out_from==0:
 				ReadCounters("s1").t_add('data','forward',['0x0&&&0x0','0x9e8dde802928&&&0x0fff',  '0x0800&&&0x0fff', 
@@ -103,6 +102,7 @@ if __name__ == "__main__":
 
 		if time_out_to!=0:
 			time_out_to-=1
+			ReadCounters("s1").t_dump('data')
 			if time_out_to==0:
 				ReadCounters("s1").t_add('data','forward',['0x9e8dde802928&&&0x0fff', '0x0&&&0x0', '0x0800&&&0x0fff', '0x0&&&0x0',
 	 '0x22cdec18&&&0x0fff', '0x6&&&0x0ff', '0x0&&&0x0', '0xC50B&&&0x0ff' ], ['00:00:0a:00:02:02', '2' ,'22'],'22')

@@ -1,0 +1,5 @@
+tcp syn reflection with model timeout of 5 counters(h2 to iot device) - 346 packets, 18765 bytes
+tcp syn reflection without model(h2 to iot device) - 1159packets,  62829 bytes
+
+tcp syn flood attack with model timeout of 5 counters(h2 to iot device) - 194 packets , 10476 bytes
+tcp syn flood without model(h2 to iot device) - 693 packets, 37584 bytes
